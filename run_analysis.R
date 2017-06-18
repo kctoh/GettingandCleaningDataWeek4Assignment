@@ -32,8 +32,9 @@ mean_std_result<-combineddata[,mean_std==TRUE]
 mean_std_result_labelled<-merge(mean_std_result,activity_labels,by='ActivityID',all.x=TRUE)
 
 #Creating tidy data set
-Tidydata<-aggregate(.~SubjectID + ActivityID,mean_std_result_labelled,mean)
+Tidydata<-aggregate(.~SubjectID + Activity,mean_std_result_labelled,mean)
 Tidydata<-Tidydata[order(Tidydata$SubjectID,Tidydata$ActivityID),]
 write.table(Tidydata,"Tidydata.txt",row.name=FALSE)
 
+# GettingandCleaningDataWeek4Assignment
 # GettingandCleaningDataWeek4Assignment
